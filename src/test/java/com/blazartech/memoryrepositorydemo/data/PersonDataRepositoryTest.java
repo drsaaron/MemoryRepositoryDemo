@@ -6,10 +6,12 @@ package com.blazartech.memoryrepositorydemo.data;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -68,6 +70,22 @@ public class PersonDataRepositoryTest {
         result.forEach(personData::add);
         
         assertEquals(5, personData.size());
+    }
+    
+    @Test
+    public void testSave() {
+        log.info("testSave");
+        PersonData newPerson = new PersonData("Henrietta", "Mcelhoney", 54);
+        instance.save(newPerson);
+        Iterable<PersonData> data = instance.findAll();
+        List<PersonData> personData = new ArrayList<>();
+        data.forEach(personData::add);
+        
+        assertEquals(6, personData.size());
+        
+        Optional<PersonData> op = instance.findById(6L);
+        assertTrue(op.isPresent());
+        assertEquals(newPerson.getFirstName(), op.get().getFirstName());
     }
 
 }
