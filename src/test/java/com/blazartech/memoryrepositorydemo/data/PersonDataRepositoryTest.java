@@ -57,7 +57,7 @@ public class PersonDataRepositoryTest {
     @Test
     public void testFindByFirstName() {
         log.info("findByFirstName");
-        String firstName = "Scott";
+        String firstName = "Daffy";
         List<PersonData> result = instance.findByFirstName(firstName);
         assertEquals(1, result.size());
     }

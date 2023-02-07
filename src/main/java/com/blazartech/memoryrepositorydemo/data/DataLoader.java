@@ -23,10 +23,10 @@ public class DataLoader {
         
         repo.deleteAll();
         
-        repo.save(new PersonData("Scott", "Aaron", 54));
-        repo.save(new PersonData("Katheen", "Aaron", 57));
-        repo.save(new PersonData("Sarah", "Aaron", 22));
-        repo.save(new PersonData("Issak", "Huntley", 33));
-        repo.save(new PersonData("Pauline", "Paha", 65));
+        repo.save(new PersonData("Donald", "Duck", 54));
+        repo.save(new PersonData("Daffy", "Duck", 57));
+        repo.save(new PersonData("Goofy", "Duck", 22));
+        repo.save(new PersonData("Mickey", "Mouse", 33));
+        repo.save(new PersonData("Speedy", "Gonzales", 65));
     }
 }
